@@ -51,6 +51,10 @@ console.log ("Bienvenidos al sistema de prestamos 9.12.18")
 let montoPrestamo = prompt("Ingrese el monto del prestamo que desea");
 let numeroDeCuotas = 0;
 
+if(montoPrestamo == "SALIR"){
+    console.log("Muchas gracias, vuelva prontos");
+}
+
 while (montoPrestamo != "SALIR"){
 
     
@@ -72,8 +76,11 @@ while (montoPrestamo != "SALIR"){
         console.log("Total con descuento del 10% para socios: ",totalPrestamoConDescuento);
         console.log("Valor por cuota: ", totalPrestamoConDescuento/numeroDeCuotas);
     }
-    
+
     montoPrestamo = prompt("Ingrese el monto para un nuevo prestamo o ingrese SALIR para finalizar");
+    if(montoPrestamo == "SALIR"){
+        console.log("Muchas gracias, vuelva prontos");
+    }
 }
     
 
