@@ -138,7 +138,3 @@ if(consultaBusqueda == "SI") {
 else if (consultaBusqueda == "NO") {
     console.log("Muchas gracias, vuelva prontos");
 }
-
-if(1 > 2) {
-    console.log ("Hola");
-}
