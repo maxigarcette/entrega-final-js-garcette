@@ -1,13 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <script src="script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="./sass/style.css">
+        <title>9.12.18</title>
+    </head>
+    <body>
+        <header>
+            <img src="./img/logo-img.jpeg" alt="logo">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#">Prestamos Nueve Doce Dieciocho</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./pages/personas.html">PERSONAS</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./pages/empresas.html">EMPRESAS</a>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </header>
+        <main>
+          <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./img/carousel-img-1.jpg" class="d-block w-100" alt="imagen carrusel uno">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Bajos intereses</h5>
+                  <p>Disfruta de un prestamo con el interes mas bajo del mercado</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="./img/carousel-img-2.jpg" class="d-block w-100" alt="imagen carrusel dos">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Hasta 24 Cuotas!</h5>
+                  <p>Podes acceder a un prestamo en hasta 24 cuotas</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="./img/carousel-img-3.jpg" class="d-block w-100" alt="imagen carrusel tres">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Cumpli tus sueños</h5>
+                  <p>Saca tu prestamo hoy y alcanza aquello que venis buscando hace tanto</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div class="seccionCards">
+            <h2>Somos simples</h2>
+            <div class="cardContainer">
+              <div class="indexCard">
+                <div class="cardIcono">
+                    <img src="./img/icono-img-1.svg" alt="icono 1">
+                </div>
+                <div class="cardTexto">
+                  <div class="cardTitulo">Es rápido</div>
+                    <div class="cardSubtitulo">Sin papeleos. Sin vueltas.</div>
+                  </div>
+                </div>
+              <div class="indexCard">
+                <div class="cardIcono">
+                  <img src="./img/icono-img-2.svg" alt="icono 2">
+                </div>
+                <div class="cardTexto">
+                  <div class="cardTitulo">Es seguro</div>
+                  <div class="cardSubtitulo">Tus datos son personales y están 100% protegidos.</div>
+                </div>
+              </div>
+              <div class="indexCard">
+                <div class="cardIcono">
+                  <img src="./img/icono-img-3.svg" alt="icono 3">
+                </div>
+                <div class="cardTexto">
+                  <div class="cardTitulo">Es 100% online</div>
+                  <div class="cardSubtitulo">Pedilo desde tu sillón o sentado en la playa</div>
+                </div>
+              </div>
+              <div class="indexCard">
+                <div class="cardIcono">
+                  <img src="./img/icono-img-4.svg" alt="icono 4">
+                </div>
+                <div class="cardTexto">
+                  <div class="cardTitulo">Es gratis</div>
+                  <div class="cardSubtitulo">Recomendarte las mejores opciones no tiene costo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="seccionFinalIndex"> 
+            <h2>¡No esperes más y accedé al préstamo que necesitás!</h2>
+            <div class="cardSimular">
+              <img src="./img/logo-img.jpeg" alt="logo">
+              <div class="simularCompleto">
+                <div class="textoCardSimular">
+                  <h3>Tenemos un préstamo a tu medida</h3>
+                  <h7>Calculá el préstamo de forma online que mejor se adepte a tus necesidades.</h7>
+                </div>
+                <a href="./pages/personas.html"><button type="button" class="btn btn-outline-light">Simulá tu préstamo</button></a>
+              </div>
+            </div>
+          </div> 
+        </main>
+        <footer>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    </body>
 </html>

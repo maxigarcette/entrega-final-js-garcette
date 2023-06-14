@@ -1,0 +1,84 @@
+.carousel img {
+    width: 100%;
+    height: 740px;
+}
+
+.seccionCards {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .cardContainer {
+        margin-top: 15px;
+        display: flex;
+        .indexCard{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 130px 52px rgba(0,0,0,.01), 0 8px 18px rgba(0,0,0,.1);
+            height: 150px;
+            width: 260px;
+            margin: 15px;
+            padding: 20px 20px 9px;
+            .cardTexto {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 10px;
+                .cardTitulo {
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 22px;
+                    margin-bottom: 10px;
+                }
+                .cardSubtitulo{
+                    text-align: center;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 17px;
+                }
+            }
+        }
+    }
+}
+
+.seccionFinalIndex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    
+    .cardSimular {
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: #eb192e;
+        margin-top: 25px;
+        border-radius: 8px;
+        .simularCompleto{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            button{
+                margin-bottom: 20px;
+                margin-left: 15px;
+            }
+            .textoCardSimular{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                padding-top: 25px;
+                padding-left: 15px;
+            }
+
+        }
+        img{
+            height: 200px;
+            width: 400px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+    }
+}
