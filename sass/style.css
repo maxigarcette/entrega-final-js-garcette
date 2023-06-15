@@ -82,6 +82,69 @@
   border-bottom-right-radius: 8px;
 }
 
+.personasCompleto {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.personasCompleto .ladoIzquierdo {
+  width: 48%;
+}
+.personasCompleto .ladoIzquierdo .formContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  margin-top: 25px;
+  border-radius: 8px;
+  box-shadow: 0 130px 52px rgba(0, 0, 0, 0.01), 0 8px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px 25px;
+}
+.personasCompleto .ladoIzquierdo .formContainer button {
+  margin-top: 20px;
+  background-color: #eb192e;
+}
+.personasCompleto .ladoIzquierdo .formContainer .checkSocio {
+  margin-top: 10px;
+}
+.personasCompleto .ladoIzquierdo .formContainer .checkSocio .form-check {
+  margin-top: 10px;
+}
+.personasCompleto .ladoIzquierdo .datosPrestamoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+  margin-top: 20px;
+  height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 130px 52px rgba(0, 0, 0, 0.01), 0 8px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px 25px;
+}
+.personasCompleto .ladoIzquierdo .datosPrestamoContainer .datosPrestamo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.personasCompleto .ladoIzquierdo .datosPrestamoContainer .datosPrestamo div {
+  margin-top: 11px;
+}
+.personasCompleto .ladoDerecho {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+  margin-top: 25px;
+  width: 48%;
+  height: 657px;
+  border-radius: 8px;
+  box-shadow: 0 130px 52px rgba(0, 0, 0, 0.01), 0 8px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px 25px;
+}
+.personasCompleto .ladoDerecho .form-control {
+  width: 50%;
+}
+.personasCompleto .ladoDerecho button {
+  background-color: #eb192e;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -128,4 +191,5 @@ header nav {
 }
 header nav .container-fluid .navbar-brand {
   font-size: 20px;
+  text-decoration: overline;
 }/*# sourceMappingURL=style.css.map */
