@@ -1,3 +1,6 @@
+let listaDePrestamos = [];
+let numeroDePrestamo = 0;
+
 class Prestamo {
     constructor (monto, cuotas, interes, totalConInteres, socio, numeroDePrestamo) {
         this.monto = monto;
@@ -20,9 +23,19 @@ class Prestamo {
     }
 }
 
+function esSocio(totalPrestamo, estadoSocio){
+    if (estadoSocio == "Sí") {
+        let descuentoSocio = totalPrestamo * 0.1;
+        return descuentoSocio;
+    }
+    else if (estadoSocio == "No") {
+        return 0;
+    }
+
+}
+
 function calculoValorPrestamo (montoPrestamo, numeroDeCuotas) {
     montoPrestamo = parseFloat (montoPrestamo);
-    numeroDeCuotas = parseInt (numeroDeCuotas);
     let valorPrestamo = 0;
     if (numeroDeCuotas == 1 && montoPrestamo > 0) {
         valorPrestamo = montoPrestamo + (montoPrestamo *0.1);
@@ -40,17 +53,10 @@ function calculoValorPrestamo (montoPrestamo, numeroDeCuotas) {
         valorPrestamo = montoPrestamo + (montoPrestamo *0.95);
         return valorPrestamo;
     }
-}
-
-function esSocio(totalPrestamo, estadoSocio){
-    if (estadoSocio == "SI") {
-        let descuentoSocio = totalPrestamo * 0.1;
-        return descuentoSocio;
+    else if (numeroDeCuotas == 24 && montoPrestamo > 0) {
+        valorPrestamo = montoPrestamo + (montoPrestamo *2.5);
+        return valorPrestamo;
     }
-    else if (estadoSocio == "NO") {
-        return 0;
-    }
-
 }
 
 function interes(numeroDeCuotas){
@@ -66,57 +72,67 @@ function interes(numeroDeCuotas){
     else if (numeroDeCuotas == 12) {
         return "95%";
     }
+    else if (numeroDeCuotas == 24) {
+        return "200%";
+    }
 }
 
-console.log ("Bienvenidos al sistema de prestamos 9.12.18");
-console.log("");
-console.log("<------------------------------------------->");
-console.log("");
+let btnSimular = document.getElementById("botonSimular");
 
-let montoPrestamo = prompt("Ingrese el monto del prestamo que desea");
-let numeroDeCuotas = 0;
-let listaDePrestamos = [];
-let numeroDePrestamo = 0;
+btnSimular.addEventListener("click", crearPrestamo);
 
-if(montoPrestamo == "SALIR"){
-    console.log("Muchas gracias, vuelva prontos");
-}
+function crearPrestamo() {
 
-while (montoPrestamo != "SALIR" && montoPrestamo != "VER PRESTAMOS" && montoPrestamo) {
+    let monto = document.getElementById("montoDelPrestamo");
+    let indiceCuotas = document.getElementById("cantidadDeCuotas");
+    let estadoSocio = document.querySelector('input[name="flexRadioDefault"]:checked').value;
+    let cantidadDeCuotas = indiceCuotas.value;
+    numeroDePrestamo++;
 
-    
-    numeroDeCuotas = prompt("Ingrese el numero de cuotas en las que desea abonar (1, 3, 6, o 12 cuotas)")
-    let totalPrestamo = calculoValorPrestamo(montoPrestamo, numeroDeCuotas);
-    let estadoSocio = prompt("Si usted esta subscripto al programa de descuentos ingrese SI, de lo contrario ingrese NO")
-    let totalPrestamoConDescuento = totalPrestamo - esSocio(totalPrestamo, estadoSocio);
-    let totalInteres = interes(numeroDeCuotas);
-    numeroDePrestamo = numeroDePrestamo + 1;
+    if(cantidadDeCuotas == 1){
+        cantidadDeCuotas = 1;
+    }
+    else if (cantidadDeCuotas == 2){
+        cantidadDeCuotas = 3;
+    }
+    else if (cantidadDeCuotas == 3){
+        cantidadDeCuotas = 6;
+    }
+    else if (cantidadDeCuotas == 4){
+        cantidadDeCuotas = 12;
+    }
+    else if (cantidadDeCuotas == 5){
+        cantidadDeCuotas = 24;
+    }
 
-    console.log("Prestamo: ", montoPrestamo);
-    console.log("Cuotas: ", numeroDeCuotas);
-    console.log("Interes: ", totalInteres);
+    let totalAPagar = calculoValorPrestamo(monto.value , cantidadDeCuotas)
+    let totalAPagarConDescuento = totalAPagar - esSocio(totalAPagar, estadoSocio);
+    let intereses = interes(cantidadDeCuotas);
 
-    if (estadoSocio == "NO") {
-        console.log("Total del prestamo: ", totalPrestamo);
-        console.log("Valor por cuota: ", Math.ceil(totalPrestamo/numeroDeCuotas));
-        console.log("");
-        listaDePrestamos.push(new Prestamo (montoPrestamo, numeroDeCuotas, totalInteres, totalPrestamo, estadoSocio, numeroDePrestamo));
+
+    document.getElementById("totalPedido").innerHTML = "El prestamo solicitado es de: $" + monto.value;
+    document.getElementById("cuotasPedidas").innerHTML = "En " + cantidadDeCuotas + " cuotas";
+    document.getElementById("interesCuotas").innerHTML = "Con un interés del: " + intereses;
+    document.getElementById("numeroDePrestamoDiv").innerHTML = "Préstamo numero: " + numeroDePrestamo;
+
+    if (estadoSocio == "No") {
+        document.getElementById("totalAPagar").innerHTML = "Total del prestamo: $" + totalAPagar;
+        document.getElementById("valorPorCuota").innerHTML = "Valor por cuota: $" + Math.ceil(totalAPagar/cantidadDeCuotas);
+        listaDePrestamos.push(new Prestamo (monto.value, cantidadDeCuotas, intereses, totalAPagar, estadoSocio, numeroDePrestamo));
     } 
-    else if(estadoSocio == "SI"){
-        console.log("Total con descuento del 10% para socios: ",totalPrestamoConDescuento);
-        console.log("Valor por cuota: ", Math.ceil(totalPrestamoConDescuento/numeroDeCuotas));
-        console.log("");
-        listaDePrestamos.push(new Prestamo (montoPrestamo, numeroDeCuotas, totalInteres, totalPrestamoConDescuento, estadoSocio, numeroDePrestamo));
-    }
-
-    montoPrestamo = prompt("Ingrese el monto para un nuevo prestamo, VER PRESTAMOS para ver las operaciones anteriores, o ingrese SALIR para finalizar");
-    if ( montoPrestamo == "VER PRESTAMOS"){
-        for (let prestamo of listaDePrestamos){
-            prestamo.getDatos();
-        }
+    else if(estadoSocio == "Sí"){
+        document.getElementById("totalAPagar").innerHTML = "Total con descuento del 10% para socios: $" + totalAPagarConDescuento;
+        document.getElementById("valorPorCuota").innerHTML = "Valor por cuota: $" + Math.ceil(totalAPagarConDescuento/cantidadDeCuotas);
+        listaDePrestamos.push(new Prestamo (monto.value, cantidadDeCuotas, intereses, totalAPagarConDescuento, estadoSocio, numeroDePrestamo));
     }
 }
 
+/*montoPrestamo = prompt("Ingrese el monto para un nuevo prestamo, VER PRESTAMOS para ver las operaciones anteriores, o ingrese SALIR para finalizar");
+if ( montoPrestamo == "VER PRESTAMOS"){
+    for (let prestamo of listaDePrestamos){
+        prestamo.getDatos();
+    }
+}
 function busquedaDePrestamo (prestamo) {
     return prestamo.numeroDePrestamo == busquedaUsuario;
 }
@@ -137,4 +153,4 @@ if(consultaBusqueda == "SI") {
 }
 else if (consultaBusqueda == "NO") {
     console.log("Muchas gracias, vuelva prontos");
-}
+}*/
