@@ -13,7 +13,7 @@
             <img src="../img/logo-img.jpeg" alt="logo">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="../index.html">Prestamos Nueve Doce Dieciocho</a>
+                  <a class="navbar-brand" href="../index.html">Préstamos Nueve Doce Dieciocho</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -75,15 +75,28 @@
               </div>
             </aside>
             <aside class="ladoDerecho">
+              <h2>Búsqueda de préstamos</h2>
               <div class="busquedaPorNumero">
                 <div class="mb-3">
                   <label for="formGroupExampleInput" class="form-label">Ingrese el numero de préstamo que busca</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="1">
+                  <input type="text" class="form-control" id="inputBuscarPrestamo" placeholder="1">
                 </div>
-                <button type="button" class="btn btn-outline-light">Buscar</button>
-                <button type="button" class="btn btn-outline-light">Ver todos</button>
+                <button id="btnBuscar" type="button" class="btn btn-outline-light">Buscar</button>
+                <button id="btnBuscarTodo" type="button" class="btn btn-outline-light">Ver todos</button>
+              </div>
+              <div class="datosPrestamoBusqueda">
+                  <div id="totalPedidoBusqueda"></div>
+                  <div id="cuotasPedidasBusqueda"></div>
+                  <div id="interesCuotasBusqueda"></div>
+                  <div id="esSocioBusqueda"></div>
+                  <div id="totalAPagarBusqueda"></div>
+                  <div id="valorPorCuotaBusqueda"></div>
+                  <div id="numeroDePrestamoDivBusqueda"></div>
               </div>
             </aside>
+          </div>
+          <div id="buscarTodos" class="buscarTodosContainer">
+            <div id="cardsBody" class="cardsPrestamo"></div>
           </div>
         </main>
         <footer>

@@ -10,17 +10,6 @@ class Prestamo {
         this.socio = socio;
         this.numeroDePrestamo = numeroDePrestamo;
     }
-    getDatos() {
-        console.log("<------------datos del prestamo------------>");
-        console.log("El monto solicitado es de: ", this.monto);
-        console.log("A pagar en: ", this.cuotas, " cuotas");
-        console.log("Con un interes del: ", this.interes);
-        console.log("El total a pagar es de: ", this.totalConInteres);
-        console.log("Socio: ", this.socio);
-        console.log("Numero de prestamo: ", this.numeroDePrestamo);
-        console.log("");
-     
-    }
 }
 
 function esSocio(totalPrestamo, estadoSocio){
@@ -54,7 +43,7 @@ function calculoValorPrestamo (montoPrestamo, numeroDeCuotas) {
         return valorPrestamo;
     }
     else if (numeroDeCuotas == 24 && montoPrestamo > 0) {
-        valorPrestamo = montoPrestamo + (montoPrestamo *2.5);
+        valorPrestamo = montoPrestamo + (montoPrestamo *2);
         return valorPrestamo;
     }
 }
@@ -127,30 +116,60 @@ function crearPrestamo() {
     }
 }
 
-/*montoPrestamo = prompt("Ingrese el monto para un nuevo prestamo, VER PRESTAMOS para ver las operaciones anteriores, o ingrese SALIR para finalizar");
-if ( montoPrestamo == "VER PRESTAMOS"){
-    for (let prestamo of listaDePrestamos){
-        prestamo.getDatos();
-    }
-}
 function busquedaDePrestamo (prestamo) {
     return prestamo.numeroDePrestamo == busquedaUsuario;
 }
+
 let busquedaUsuario = 0;
 let resultadoBusqueda = 0;
+let btnBuscar = document.getElementById("btnBuscar");
+btnBuscar.addEventListener("click", buscarPrestamo);
 
-let consultaBusqueda = prompt("Quiere buscar un prestamo en particular?")
+function buscarPrestamo(){
 
-if(consultaBusqueda == "SI") {
-    busquedaUsuario = prompt("Ingrese el numero de prestamo que busca")
+    busquedaUsuario = document.getElementById("inputBuscarPrestamo").value;
     resultadoBusqueda = listaDePrestamos.find (busquedaDePrestamo);
     if (resultadoBusqueda != undefined){
-        console.log(resultadoBusqueda);
+        document.getElementById("totalPedidoBusqueda").innerHTML = "El prestamo solicitado es de: $" + resultadoBusqueda.monto;
+        document.getElementById("cuotasPedidasBusqueda").innerHTML = "En " + resultadoBusqueda.cuotas + " cuotas";
+        document.getElementById("interesCuotasBusqueda").innerHTML = "Con un interés del: " + resultadoBusqueda.interes;
+        document.getElementById("esSocioBusqueda").innerHTML = "Es socio?: " + resultadoBusqueda.socio;
+        document.getElementById("numeroDePrestamoDivBusqueda").innerHTML = "Préstamo numero: " + resultadoBusqueda.numeroDePrestamo;
+        document.getElementById("totalAPagarBusqueda").innerHTML = "Total del prestamo: $" + resultadoBusqueda.totalConInteres;
+        document.getElementById("valorPorCuotaBusqueda").innerHTML = "Valor por cuota: $" + Math.ceil(resultadoBusqueda.totalConInteres/resultadoBusqueda.cuotas);
     }
     else {
-        console.log("No se encontro el prestamo numero: ", busquedaUsuario);
+        document.getElementById("totalPedidoBusqueda").innerHTML = "No se encontro el prestamo numero: " + busquedaUsuario;
+        document.getElementById("cuotasPedidasBusqueda").innerHTML = "";
+        document.getElementById("interesCuotasBusqueda").innerHTML = "";
+        document.getElementById("numeroDePrestamoDivBusqueda").innerHTML = "";
+        document.getElementById("totalAPagarBusqueda").innerHTML = "";
+        document.getElementById("valorPorCuotaBusqueda").innerHTML = "";
+        document.getElementById("esSocioBusqueda").innerHTML = "";
     }
 }
-else if (consultaBusqueda == "NO") {
-    console.log("Muchas gracias, vuelva prontos");
-}*/
+
+let btnBuscarTodo = document.getElementById("btnBuscarTodo");
+btnBuscarTodo.addEventListener("click", imprimirPrestamos);
+
+function imprimirPrestamos(){
+
+    let cardsCointainer = document.getElementById("cardsBody");
+    let buscarTodosContainer = document.getElementById("buscarTodos");
+
+    let busquedaTitulo = document.createElement("h2");
+    busquedaTitulo.innerText = "Su búsqueda";
+    buscarTodosContainer.append(busquedaTitulo);
+
+    for (let prestamo of listaDePrestamos){
+        let div = document.createElement("div");
+        div.innerHTML = `<h4>Préstamo número: ${prestamo.numeroDePrestamo}</h4>
+                        <p>El prestamo solicitado es de: <br> $ ${prestamo.monto}</p>
+                        <p>En ${prestamo.cuotas} cuotas</p>
+                        <p>Con un interés del ${prestamo.interes}</p>
+                        <p>Es socio? ${prestamo.socio}</p>
+                        <p>Total del préstamo: $ ${prestamo.totalConInteres}</p>
+                        <p>Valor por cuota: $ ${Math.ceil(prestamo.totalConInteres/prestamo.cuotas)}</p>`;
+        cardsCointainer.append(div);
+    }   
+}

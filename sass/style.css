@@ -133,7 +133,7 @@
   margin-right: 25px;
   margin-top: 25px;
   width: 48%;
-  height: 657px;
+  height: 652px;
   border-radius: 8px;
   box-shadow: 0 130px 52px rgba(0, 0, 0, 0.01), 0 8px 18px rgba(0, 0, 0, 0.1);
   padding: 20px 20px 25px;
@@ -143,6 +143,36 @@
 }
 .personasCompleto .ladoDerecho button {
   background-color: #eb192e;
+}
+.personasCompleto .ladoDerecho .datosPrestamoBusqueda {
+  margin-top: 15px;
+}
+
+.buscarTodosContainer {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.buscarTodosContainer h2 {
+  margin-top: 35px;
+  margin-left: 25px;
+  text-decoration: overline;
+}
+.buscarTodosContainer .cardsPrestamo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.buscarTodosContainer .cardsPrestamo div {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 130px 52px rgba(0, 0, 0, 0.01), 0 8px 18px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px 25px;
+}
+.buscarTodosContainer .cardsPrestamo div h4 {
+  text-decoration: overline;
 }
 
 * {
