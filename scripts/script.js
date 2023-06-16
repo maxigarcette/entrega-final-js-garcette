@@ -170,6 +170,17 @@ function imprimirPrestamos(){
                         <p>Es socio? ${prestamo.socio}</p>
                         <p>Total del préstamo: $ ${prestamo.totalConInteres}</p>
                         <p>Valor por cuota: $ ${Math.ceil(prestamo.totalConInteres/prestamo.cuotas)}</p>`;
-        cardsCointainer.append(div);
+        cardsCointainer.append(div);    
     }   
+}
+
+let btnCerrar = document.getElementById("btnCerrar");
+btnCerrar.addEventListener("click", cerrarVentana);
+
+function cerrarVentana() {
+    let ventana = document.getElementById("datosBusqueda");
+    let ventanaDos = document.getElementById("buscarTodos");
+
+    ventana.remove();
+    ventanaDos.remove();
 }
