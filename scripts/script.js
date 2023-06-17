@@ -130,7 +130,10 @@ btnBuscar.addEventListener("click", buscarPrestamo);
 function buscarPrestamo(){
 
     busquedaUsuario = document.getElementById("inputBuscarPrestamo").value;
-    resultadoBusqueda = listaDePrestamos.find (busquedaDePrestamo);
+
+    let listaDePrestamosStorage = JSON.parse(localStorage.getItem("listaDePrestamos"));
+    resultadoBusqueda = listaDePrestamosStorage.find (busquedaDePrestamo);
+
     if (resultadoBusqueda != undefined){
         document.getElementById("totalPedidoBusqueda").innerHTML = "El prestamo solicitado es de: $" + resultadoBusqueda.monto;
         document.getElementById("cuotasPedidasBusqueda").innerHTML = "En " + resultadoBusqueda.cuotas + " cuotas";
