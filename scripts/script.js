@@ -108,11 +108,13 @@ function crearPrestamo() {
         document.getElementById("totalAPagar").innerHTML = "Total del prestamo: $" + totalAPagar;
         document.getElementById("valorPorCuota").innerHTML = "Valor por cuota: $" + Math.ceil(totalAPagar/cantidadDeCuotas);
         listaDePrestamos.push(new Prestamo (monto.value, cantidadDeCuotas, intereses, totalAPagar, estadoSocio, numeroDePrestamo));
+        localStorage.setItem("listaDePrestamos" , JSON.stringify(listaDePrestamos));
     } 
     else if(estadoSocio == "Sí"){
         document.getElementById("totalAPagar").innerHTML = "Total con descuento del 10% para socios: $" + totalAPagarConDescuento;
         document.getElementById("valorPorCuota").innerHTML = "Valor por cuota: $" + Math.ceil(totalAPagarConDescuento/cantidadDeCuotas);
         listaDePrestamos.push(new Prestamo (monto.value, cantidadDeCuotas, intereses, totalAPagarConDescuento, estadoSocio, numeroDePrestamo));
+        localStorage.setItem("listaDePrestamos" , JSON.stringify(listaDePrestamos));
     }
 }
 
@@ -161,7 +163,9 @@ function imprimirPrestamos(){
     busquedaTitulo.innerText = "Su búsqueda";
     buscarTodosContainer.append(busquedaTitulo);
 
-    for (let prestamo of listaDePrestamos){
+    let listaDePrestamosStorage = JSON.parse(localStorage.getItem("listaDePrestamos"));
+
+    for (let prestamo of listaDePrestamosStorage){
         let div = document.createElement("div");
         div.innerHTML = `<h4>Préstamo número: ${prestamo.numeroDePrestamo}</h4>
                         <p>El prestamo solicitado es de: <br> $ ${prestamo.monto}</p>
