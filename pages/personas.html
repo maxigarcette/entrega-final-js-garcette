@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="../sass/style.css">
         <title>9.12.18 - PERSONAS</title>
@@ -75,25 +76,31 @@
               </div>
             </aside>
             <aside class="ladoDerecho">
-              <h2>Búsqueda de préstamos</h2>
-              <div class="busquedaPorNumero">
-                <div class="mb-3">
-                  <label for="formGroupExampleInput" class="form-label">Ingrese el numero de préstamo que busca</label>
-                  <input type="text" class="form-control" id="inputBuscarPrestamo" placeholder="1">
+              <div class="parteArriba">
+                <h2>Búsqueda de préstamos</h2>
+                <div class="busquedaPorNumero">
+                  <div class="mb-3">
+                    <label for="formGroupExampleInput" class="form-label">Ingrese el numero de préstamo que busca</label>
+                    <input type="text" class="form-control" id="inputBuscarPrestamo" placeholder="1">
+                  </div>
+                  <button id="btnBuscar" type="button" class="btn btn-outline-light">Buscar</button>
+                  <button id="btnBuscarTodo" type="button" class="btn btn-outline-light">Ver todos</button>
+                  <button id="btnCerrar" type="button" class="btn btn-outline-light">Cerrar</button>
                 </div>
-                <button id="btnBuscar" type="button" class="btn btn-outline-light">Buscar</button>
-                <button id="btnBuscarTodo" type="button" class="btn btn-outline-light">Ver todos</button>
-                <button id="btnCerrar" type="button" class="btn btn-outline-light">Cerrar</button>
+                <div id="datosBusqueda" class="datosPrestamoBusqueda">
+                  <div id="divBorrar">
+                    <div id="totalPedidoBusqueda"></div>
+                    <div id="cuotasPedidasBusqueda"></div>
+                    <div id="interesCuotasBusqueda"></div>
+                    <div id="esSocioBusqueda"></div>
+                    <div id="totalAPagarBusqueda"></div>
+                    <div id="valorPorCuotaBusqueda"></div>
+                    <div id="numeroDePrestamoDivBusqueda"></div>
+                  </div>
+                </div>
               </div>
-              <div id="datosBusqueda" class="datosPrestamoBusqueda">
-                <div id="divBorrar">
-                  <div id="totalPedidoBusqueda"></div>
-                  <div id="cuotasPedidasBusqueda"></div>
-                  <div id="interesCuotasBusqueda"></div>
-                  <div id="esSocioBusqueda"></div>
-                  <div id="totalAPagarBusqueda"></div>
-                  <div id="valorPorCuotaBusqueda"></div>
-                  <div id="numeroDePrestamoDivBusqueda"></div>
+              <div class="cotizacionDolar">
+                <div class="spanContainer" id="dolar">
                 </div>
               </div>
             </aside>
@@ -104,6 +111,8 @@
         </main>
         <footer>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
         <script src="../scripts/script.js"></script>

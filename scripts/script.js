@@ -156,6 +156,7 @@ function buscarPrestamo(){
 
 let btnBuscarTodo = document.getElementById("btnBuscarTodo");
 btnBuscarTodo.addEventListener("click", imprimirPrestamos);
+let fechaHora = luxon.DateTime;
 
 function imprimirPrestamos(){
 
@@ -170,13 +171,16 @@ function imprimirPrestamos(){
 
     for (let prestamo of listaDePrestamosStorage){
         let div = document.createElement("div");
+        let ahora = fechaHora.now().toObject();
+
         div.innerHTML = `<h4>Préstamo número: ${prestamo.numeroDePrestamo}</h4>
                         <p>El prestamo solicitado es de: <br> $ ${prestamo.monto}</p>
                         <p>En ${prestamo.cuotas} cuotas</p>
                         <p>Con un interés del ${prestamo.interes}</p>
                         <p>Es socio? ${prestamo.socio}</p>
                         <p>Total del préstamo: $ ${prestamo.totalConInteres}</p>
-                        <p>Valor por cuota: $ ${Math.ceil(prestamo.totalConInteres/prestamo.cuotas)}</p>`;
+                        <p>Valor por cuota: $ ${Math.ceil(prestamo.totalConInteres/prestamo.cuotas)}</p>
+                        <p>Fecha y hora: ${ahora.day}/${ahora.month}/${ahora.year} - ${ahora.hour}:${ahora.minute}</p>`;
         cardsCointainer.append(div);    
     }   
 }
@@ -188,6 +192,40 @@ function cerrarVentana() {
     let ventana = document.getElementById("datosBusqueda");
     let ventanaDos = document.getElementById("buscarTodos");
 
+    Toastify({
+        text: "Préstamos borrados",
+        duration: 3000,
+        gravity: 'bottom',
+        position: 'left',
+        className: 'borrados',
+        style: {
+            background: "linear-gradient(to right, #000000, #eb192e)",
+          }
+    }).showToast();
+
     ventana.remove();
     ventanaDos.remove();
 }
+
+fetch("https://api.bluelytics.com.ar/v2/latest")
+  .then((response) => response.json())
+  .then((data) => {
+    let dolarOficial = data.oficial.value_avg;
+    let dolarBlue = data.blue.value_avg;
+
+    let dolarDiv = document.getElementById("dolar");
+
+    let dolarOficialElement = document.createElement("span");
+    dolarOficialElement.textContent = `Valor del dolar oficial: $${dolarOficial}`;
+    dolarOficialElement.classList.add("dolarOficial");
+    dolarDiv.appendChild(dolarOficialElement);
+
+    let dolarBlueElement = document.createElement("span");
+    dolarBlueElement.textContent = `Valor del dolar blue: $${dolarBlue}`;
+    dolarBlueElement.classList.add("dolarBlue");
+    dolarDiv.appendChild(dolarBlueElement);    
+  })
+  .catch(error => {
+    document.getElementById('dolar').textContent = 'Ocurrió un error al obtener la cotización.';
+    console.log('Ocurrió un error al obtener la cotización:', error);
+  });

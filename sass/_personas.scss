@@ -45,6 +45,7 @@
     .ladoDerecho{
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         margin-right: 25px;
         margin-top: 25px;
         width: 48%;
@@ -52,6 +53,17 @@
         border-radius: 8px;
         box-shadow: 0 130px 52px rgba(0,0,0,.01), 0 8px 18px rgba(0,0,0,.1);
         padding: 20px 20px 25px ;
+        .cotizacionDolar{
+            border-radius: 8px;
+            box-shadow: 0 130px 52px rgba(0,0,0,.01), 0 8px 18px rgba(0,0,0,.1);
+            padding: 20px 20px 25px ;
+            background: linear-gradient(to right, #000000, #eb192e);
+            .spanContainer{
+                display: flex;
+                flex-direction: column;
+                color: white;
+            }
+        }
         .form-control{
             width: 50%;
         }
