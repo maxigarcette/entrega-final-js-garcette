@@ -185,6 +185,14 @@ function imprimirPrestamos(){
     }   
 }
 
+function volverAlIndexDespuesDeTiempo(tiempo) {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve();
+    }, tiempo);
+  });
+}
+
 let btnCerrar = document.getElementById("btnCerrar");
 btnCerrar.addEventListener("click", cerrarVentana);
 
@@ -205,6 +213,14 @@ function cerrarVentana() {
 
     ventana.remove();
     ventanaDos.remove();
+
+    volverAlIndexDespuesDeTiempo(3000) 
+    .then(function() {
+      window.location.href = '../index.html';
+    })
+    .catch(function(error) {
+      console.error('Ocurrió un error:', error);
+    });
 }
 
 fetch("https://api.bluelytics.com.ar/v2/latest")
